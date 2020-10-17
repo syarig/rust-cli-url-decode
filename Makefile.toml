@@ -1,0 +1,17 @@
+[env]
+APP_ARGS = "foo%20bar"
+LOG_LEVEL = "debug"
+RUST_LOG = "url=${LOG_LEVEL}"
+
+[tasks.reformat]
+description = "Format"
+args = ["fmt", "--emit files"]
+
+[tasks.run]
+description = "Run"
+command = "cargo"
+args = ["run", "${APP_ARGS}"]
+
+[tasks.test]
+description = "Test"
+args = ["test"]
